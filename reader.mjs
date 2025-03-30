@@ -22,6 +22,7 @@ const getScannerData = async () => {
     data.messages.forEach((msg) => {
       // console.log(msg);
       console.log(msg.message.topGainers);
+      console.log("-------\n");
     });
   });
 };
