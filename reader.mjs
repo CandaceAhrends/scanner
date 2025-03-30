@@ -17,6 +17,13 @@ const getScannerData = async () => {
     count: 100,
   });
   console.log("📚 Data from Redis", result);
+
+  result.forEach((data) => {
+    console.log(data.name);
+    data.messages.forEach((message) => {
+      console.log(message);
+    });
+  });
 };
 
 const test = getScannerData();
