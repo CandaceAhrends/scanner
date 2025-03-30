@@ -4,11 +4,14 @@ const redis = createClient();
 
 const PARTITION_KEYS = ["First", "Second", "Third", "Fourth", "Fifth"];
 
-const redisKeys = PARTITION_KEYS.map((key) => `stocks-${key}`);
+const redisKeys = PARTITION_KEYS.map((key) => ({
+  key: `stocks-${key}`,
+  id: "0",
+}));
 
 const getScannerData = async () => {
   await redis.connect();
-  console.log("🔌 Connected to Redis");
+  console.log("🔌 Connected to Redis", redisKeys);
 
   const result = await redis.xRead([{ key: redisKeys[0], id: "0" }], {
     count: 100,
