@@ -6,7 +6,7 @@ const PARTITION_KEYS = ["First", "Second", "Third", "Fourth", "Fifth"];
 
 const redisKeys = PARTITION_KEYS.map((key) => ({
   key: `stocks-${key}`,
-  id: "0",
+  id: "$",
 }));
 
 const getScannerData = async () => {
