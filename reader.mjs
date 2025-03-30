@@ -23,9 +23,8 @@ const getScannerData = async () => {
       // console.log(msg);
       //console.log(msg.message.topGainers);
       console.log("-------\n");
-      msg.message.topGainers.forEach((gainer) => {
-        console.log(gainer);
-      });
+      const gaienrs = JSON.parse(msg.message.topGainers);
+      console.log(gaienrs);
     });
   });
 };
