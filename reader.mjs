@@ -20,8 +20,8 @@ const getScannerData = async () => {
 
   result.forEach((data) => {
     console.log(data.name);
-    data.messages.forEach((message) => {
-      console.log(message);
+    data.messages.forEach((msg) => {
+      const d = JSON.parse(msg.message);
     });
   });
 };
