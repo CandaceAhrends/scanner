@@ -13,6 +13,7 @@ const getScannerData = async () => {
   const result = await redis.xRead([{ key: redisKeys[0], id: "0" }], {
     count: 100,
   });
+  console.log("📚 Data from Redis", result);
 };
 
 const test = getScannerData();
