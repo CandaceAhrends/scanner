@@ -15,15 +15,15 @@ const getScannerData = async () => {
 
   const result = await redis.xRead(redisKeys, {
     count: 100,
+    block: 0,
   });
   console.log("📚 Data from Redis", result);
 
   result.forEach((data) => {
     data.messages.forEach((msg) => {
-      // console.log(msg);
-      //console.log(msg.message.topGainers);
-      console.log("-------\n");
-      const gaienrs = JSON.parse(msg.message.topGainers);
+      const gainerMessage = msg?.message?.topGainers;
+      if (!gainerMessage) return;
+      const gaienrs = JSON.parse(gainerMessage);
       console.log(gaienrs);
     });
   });
